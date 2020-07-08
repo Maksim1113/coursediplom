@@ -1,11 +1,30 @@
 package ru.khaustov.coursediplom.entity;
 
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Set;
 
 public class Client {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "client_id")
     private long id;
+
+    @Column(name = "client_name")
+    @NotEmpty(message = "*Пожалуйста введите ваше имя")
     private String name;
+
+    @Column(name = "client_surname")
+    @NotEmpty(message = "*Пожалуйста введите вашу фамилию")
     private String surname;
+
+    
     private String fonNumber;
     private String eMail;
     private String password;
