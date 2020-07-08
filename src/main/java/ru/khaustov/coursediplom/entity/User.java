@@ -1,22 +1,26 @@
 package ru.khaustov.coursediplom.entity;
 
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Set;
 
-public class Client {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "client_id")
+    @Column(name = "user_id")
     private long id;
 
-    @Column(name = "client_name")
+    @Column(name = "user_name")
+    @Length(min = 10, message = "*Ваш ник должен быть не менее 10 символов")
+    @NotEmpty(message = "*Пожалуйста введите ваш ник")
+    private String userName;
+
+    @Column(name = "name")
     @NotEmpty(message = "*Пожалуйста введите ваше имя")
     private String name;
 
@@ -24,12 +28,35 @@ public class Client {
     @NotEmpty(message = "*Пожалуйста введите вашу фамилию")
     private String surname;
 
-    
+    @Column(name = "client_fonnumber")
+    @Length(min = 12, message = "*Ваш номер телефона должен быть записан ввиде 8хххххххххх")
+    @NotEmpty(message = "*Пожалуйста введите ваш номер телефона")
     private String fonNumber;
+
+    @Column(name = "email")
+    @Email(message = "*Пожалуйста введите действующий Email")
+    @NotEmpty(message = "*Пожалуйста введите ваш email")
     private String eMail;
+
+    @Column(name = "password")
+    @Length(min = 5, message = "*Ваш пароль должен быть длиннее 5 символов")
+    @NotEmpty(message = "*Пожалуйста введите пароль")
     private String password;
+
+    @Column(name = "active")
     private boolean active;
+
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "client_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public String getPassword() {
         return password;
