@@ -36,7 +36,7 @@ public class User {
     @Column(name = "email")
     @Email(message = "*Пожалуйста введите действующий Email")
     @NotEmpty(message = "*Пожалуйста введите ваш email")
-    private String eMail;
+    private String email;
 
     @Column(name = "password")
     @Length(min = 5, message = "*Ваш пароль должен быть длиннее 5 символов")
@@ -114,12 +114,12 @@ public class User {
         this.fonNumber = fonNumber;
     }
 
-    public String geteMail() {
-        return eMail;
+    public String getEmail() {
+        return email;
     }
 
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
+    public void setEmail(String eMail) {
+        this.email = email;
     }
 }
 

@@ -14,7 +14,7 @@ import ru.khaustov.coursediplom.service.MyUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecyrityConfiguration {
+public class WebSecyrityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
