@@ -15,7 +15,7 @@
 
     <form th:action="@{/logout}" method="get">
         <button class="btn btn-md btn-danger btn-block" name="registration"
-                type="Submit">Logout
+                type="Submit">Выход
         </button>
     </form>
 
@@ -24,11 +24,8 @@
             <div class="panel-heading">
                 <span th:utext="${userName}"></span>
             </div>
-            <div class="panel-body">
-                <img th:src="@{/images/beer.jpg}" class="img-responsive center-block" width="400" height="400"
-                     alt="Beer"/>
-            </div>
-            <p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
+
+            <p class="admin-message-text text-center" th:text="${adminMessage}"></p>
         </div>
     </div>
 

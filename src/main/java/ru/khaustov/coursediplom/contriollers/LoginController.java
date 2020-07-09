@@ -45,15 +45,15 @@ public class LoginController {
         if (userExists != null) {
             bindingResult
                     .rejectValue("userName", "error.user",
-                            "There is already a user registered with the user name provided");
+                            "Пользователь с таким именем уже существует");
         }
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("user/registration");
         } else {
             userService.saveUser(user);
-            modelAndView.addObject("successMessage", "User has been registered successfully");
+            modelAndView.addObject("successMessage", "Пользователь удачно зарегистрирован");
             modelAndView.addObject("user", new User());
-            modelAndView.setViewName("user/registration");
+            modelAndView.setViewName("user/login");
 
         }
         return modelAndView;

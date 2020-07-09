@@ -21,11 +21,11 @@ public class User {
     private String userName;
 
     @Column(name = "name")
-    @Length(min = 3, message = "*Ваш ник должен быть не менее 10 символов")
+    @Length(min = 2, message = "*Ваше имя должно быть не менее 2 символов")
     private String name;
 
     @Column(name = "last_name")
-    @Length(min = 3, message = "*Ваш ник должен быть не менее 10 символов")
+    @Length(min = 3, message = "*Ваша фамилия должна быть не менее 3 символов")
     private String lastName;
 
 
