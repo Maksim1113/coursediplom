@@ -1,13 +1,13 @@
 package ru.khaustov.coursediplom.entity;
 
 
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.util.Set;
 
+@Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -17,30 +17,30 @@ public class User {
 
     @Column(name = "user_name")
     @Length(min = 10, message = "*Ваш ник должен быть не менее 10 символов")
-    @NotEmpty(message = "*Пожалуйста введите ваш ник")
+    //@NotEmpty(message = "*Пожалуйста введите ваш ник")
     private String userName;
 
     @Column(name = "name")
-    @NotEmpty(message = "*Пожалуйста введите ваше имя")
+    //@NotEmpty(message = "*Пожалуйста введите ваше имя")
     private String name;
 
-    @Column(name = "client_surname")
-    @NotEmpty(message = "*Пожалуйста введите вашу фамилию")
-    private String surname;
+    @Column(name = "last_name")
+    //@NotEmpty(message = "*Пожалуйста введите вашу фамилию")
+    private String lastName;
 
-    @Column(name = "client_fonnumber")
+    /*@Column(name = "fonNumber")
     @Length(min = 12, message = "*Ваш номер телефона должен быть записан ввиде 8хххххххххх")
-    @NotEmpty(message = "*Пожалуйста введите ваш номер телефона")
-    private String fonNumber;
+    //@NotEmpty(message = "*Пожалуйста введите ваш номер телефона")
+    private String fonNumber;*/
 
     @Column(name = "email")
-    @Email(message = "*Пожалуйста введите действующий Email")
-    @NotEmpty(message = "*Пожалуйста введите ваш email")
+    //@Email(message = "*Пожалуйста введите действующий Email")
+    //@NotEmpty(message = "*Пожалуйста введите ваш email")
     private String email;
 
     @Column(name = "password")
     @Length(min = 5, message = "*Ваш пароль должен быть длиннее 5 символов")
-    @NotEmpty(message = "*Пожалуйста введите пароль")
+    //@NotEmpty(message = "*Пожалуйста введите пароль")
     private String password;
 
     @Column(name = "active")
@@ -98,21 +98,21 @@ public class User {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setSurname(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getFonNumber() {
+/*    public String getFonNumber() {
         return fonNumber;
     }
 
     public void setFonNumber(String fonNumber) {
         this.fonNumber = fonNumber;
-    }
+    }*/
 
     public String getEmail() {
         return email;

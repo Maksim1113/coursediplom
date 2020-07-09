@@ -16,8 +16,7 @@ import ru.khaustov.coursediplom.service.MyUserDetailsService;
 @Configuration
 @EnableWebSecurity
 public class WebSecyrityConfiguration extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private MyUserDetailsService userDetailsService;
+
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
 
@@ -27,12 +26,15 @@ public class WebSecyrityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    @Autowired
+    private MyUserDetailsService userDetailsService;
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(userDetailsService)
-                .passwordEncoder(bCryptPasswordEncoder());
+                .passwordEncoder(bCryptPasswordEncoder);
     }
 
     @Override
