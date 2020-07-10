@@ -1,10 +1,10 @@
 package ru.khaustov.coursediplom.entity;
 
 
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.Set;
 
 @Entity
@@ -96,8 +96,8 @@ public class User {
         return lastName;
     }
 
-    public void setSurname(String lastName) {
-        this.lastName = lastName;
+    public void setLastName(String lasTName) {
+        this.lastName = lasTName;
     }
 
     public String getEmail() {
@@ -105,7 +105,7 @@ public class User {
     }
 
     public void setEmail(String eMail) {
-        this.email = email;
+        this.email = eMail;
     }
 }
 

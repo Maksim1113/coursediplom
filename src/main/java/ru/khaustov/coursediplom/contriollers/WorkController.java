@@ -72,13 +72,22 @@ public class WorkController {
     public String edditForm(@PathVariable(value = "id") long id, @RequestParam String typeOfService,
                             @RequestParam String description, @RequestParam String duration,
                             @RequestParam int price, Model model) {
-        Work work = workRepository.findById(id).orElseThrow();
+
+        Work work = workRepository.findById(id).orElse(new Work());
+
         work.setTypeOfService(typeOfService);
         work.setDescription(description);
         work.setDuration(duration);
         work.setPrice(price);
         workRepository.save(work);
-        return "redirect:/admin/serviceDetails";
+        return "redirect:/admin/{id}";
+    }
+    @PostMapping("admin/{id}/remove")
+    public String deleteForm(@PathVariable(value = "id") long id, Model model) {
+
+        Work work = workRepository.findById(id).orElse(new Work());
+        workRepository.delete(work);
+        return "redirect:/admin/showAllService";
     }
 
     /*@GetMapping("admin/addService")

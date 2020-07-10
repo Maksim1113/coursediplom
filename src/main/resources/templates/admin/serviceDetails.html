@@ -23,8 +23,10 @@
         <p th:text="${el.duration}"/>
         <h3> Цена</h3>
         <p th:text="${el.price}"/>
-        <a th:href="'/admin/' + ${el.id} + '/edit'" class="btn btn-warning">Редактирование</a>
-        <a th:href="'/admin/' + ${el.id} + '/remove'" class="btn btn-warning">Удаление</a>
+        <a th:href="'/admin/' + ${el.id} + '/edit'" class="btn btn-warning">Редактирование</a><br><br>
+        <form th:action="'/admin/' + ${el.id} + '/remove'" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+        </form>
     </div>
 </div>
 
