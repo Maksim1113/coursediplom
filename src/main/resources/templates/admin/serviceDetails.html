@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Детальная информация</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form th:action="@{/admin/showAllService}" method="get">
+    <button class="btn btn-md btn-warning btn-block" type="Submit">Обратно в список</button>
+</form>
+
+<div class="container mt-5">
+    <h1>Детальная информация</h1>
+    <div th:each="el : ${work}" class="alert alert-info mt-2">
+        <h3 th:text="${el.typeOfService}"/>
+        <h3> Описание</h3>
+        <p th:text="${el.description}"/>
+        <h3> Продолжительность</h3>
+        <p th:text="${el.duration}"/>
+        <h3> Цена</h3>
+        <p th:text="${el.price}"/>
+        <a th:href="'/admin/' + ${el.id} + '/edit'" class="btn btn-warning">Редактирование</a>
+        <a th:href="'/admin/' + ${el.id} + '/remove'" class="btn btn-warning">Удаление</a>
+    </div>
+</div>
+
+
+
+
+
+</body>
+</html>

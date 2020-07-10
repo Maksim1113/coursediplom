@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Редактирование услуги</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form th:action="@{/admin/showAllService}" method="get">
+    <button class="btn btn-md btn-warning btn-block" type="Submit">Обратно к списку</button>
+</form>
+
+<div class="col-am-9 mb-5">
+    <h2>Редактировать услугу</h2>
+    <div th:each="el : ${work}">
+    <form  method="post">
+
+        <input type="text" th:value= "${el.typeOfService}" name="typeOfService" placeholder="Название услуги"
+               class="form-control"/><br>
+        <input type="text" th:value= "${el.description}" name="description" placeholder="Описание услуги"
+               class="form-control"/><br>
+        <input type="text" th:value= "${el.duration}" name="duration" placeholder="Продолжительность услуги"
+               class="form-control"/><br>
+        <input type="text" th:value= "${el.price}" name="price" placeholder="Цена услуги"
+               class="form-control"/><br>
+
+
+        <button type="submit" class="btn btn-primary btn-block">Обновить</button>
+
+
+    </form>
+</div>
+</div>
+
+
+
+
+</body>
+</html>

@@ -25,6 +25,10 @@
         <button class="btn btn-md btn-warning btn-block" type="Submit">Изменить услугу</button>
     </form>
 
+    <form th:action="@{/admin/showAllService}" method="get">
+        <button class="btn btn-md btn-warning btn-block" type="Submit">Показать услуги</button>
+    </form>
+
 
     <form th:action="@{/logout}" method="get">
         <button class="btn btn-md btn-danger btn-block" name="registration"
