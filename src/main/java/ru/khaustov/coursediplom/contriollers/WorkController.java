@@ -90,17 +90,7 @@ public class WorkController {
         return "redirect:/admin/showAllService";
     }
 
-    /*@GetMapping("admin/addService")
-    public String addServiceForm(Model model){
-        return "admin/addService";
-    }
 
-    @PostMapping ("admin/addService")
-    public String addService(@RequestParam String typeOfService,
-                             @RequestParam String description, @RequestParam String duration,
-                             @RequestParam Integer price_type, Model model){
-        return "admin/addService";
-    }*/
 
 
 }
