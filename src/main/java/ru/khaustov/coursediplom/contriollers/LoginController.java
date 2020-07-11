@@ -69,4 +69,9 @@ public class LoginController {
         modelAndView.setViewName("admin/home");
         return modelAndView;
     }
+
+    @GetMapping(value="/start")
+    public String start(){
+        return "/start";
+    }
 }
