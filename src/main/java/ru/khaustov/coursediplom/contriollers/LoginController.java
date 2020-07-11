@@ -53,7 +53,7 @@ public class LoginController {
             userService.saveUser(user);
             modelAndView.addObject("successMessage", "Пользователь удачно зарегистрирован");
             modelAndView.addObject("user", new User());
-            modelAndView.setViewName("user/login");
+            modelAndView.setViewName("user/registration");
 
         }
         return modelAndView;
@@ -65,7 +65,7 @@ public class LoginController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
         modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-        modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
+        modelAndView.addObject("adminMessage","Содержимое доступно только для пользователей с ролью администратора");
         modelAndView.setViewName("admin/home");
         return modelAndView;
     }
